@@ -9,19 +9,17 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".ui.dash.home.HomeFragment">
 
-        <VideoView
-            android:id="@+id/videoView"
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:transitionName="cona6" />
+            android:textSize="30sp"
+            android:text="home" />
 
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
 </layout>

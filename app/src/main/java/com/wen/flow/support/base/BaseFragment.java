@@ -1,5 +1,6 @@
 package com.wen.flow.support.base;
 
+import android.app.Activity;
 import android.content.Context;
 
 import android.os.Bundle;
@@ -17,12 +18,17 @@ import androidx.fragment.app.Fragment;
 public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
 
     protected Context context;
+    protected Activity mActivity;
     protected T binding;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.context = context;
+        if (context instanceof Activity) {
+            mActivity = (Activity) context;
+//            LogUtils.d("當前acitivty:" + mActivity.getClass().getSimpleName());
+        }
     }
 
     @Nullable

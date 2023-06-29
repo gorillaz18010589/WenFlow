@@ -9,5 +9,15 @@
         android:id="@+id/startFragment"
         android:name="com.wen.flow.StartFragment"
         android:label="fragment_start"
-        tools:layout="@layout/fragment_start" />
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_signInsignUpFragment"
+            app:destination="@id/signInsignUpFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/signInsignUpFragment"
+        android:name="com.wen.flow.ui.start.SignInSignUpFragment"
+        tools:layout="@layout/fragment_sign_in_sign_up" />
 </navigation>
