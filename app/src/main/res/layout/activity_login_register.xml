@@ -4,13 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="iconEnum"
+            type="com.wen.flow.enums.IconEnum" />
 
+
+        <variable
+            name="titleCloseBarEnum"
+            type="com.wen.flow.enums.TitleCloseBarEnum" />
+
+        <variable
+            name="imageButtonViewModel"
+            type="com.wen.flow.viewmodel.ImageButtonViewModel" />
+
+        <variable
+            name="ImageButtonBean"
+            type="com.wen.flow.model.ImageButtonBean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.login_register.LoginRegisterActivity">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+            <include
+                android:id="@+id/includeTitleCloseBar"
+                layout="@layout/include_title_close_bar"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

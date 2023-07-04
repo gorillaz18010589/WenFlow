@@ -1,12 +1,19 @@
 package com.wen.flow.ui.dash;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+
+import com.wen.flow.MainActivity;
 import com.wen.flow.R;
 import com.wen.flow.databinding.ActivityDashBinding;
 import com.wen.flow.support.base.BaseBindingActivity;
 import com.wen.flow.ui.dash.home.HomeFragment;
 import com.wen.flow.ui.dash.user.UserFragment;
+import com.wen.flow.ui.login_register.LoginRegisterActivity;
 
 public class DashActivity extends BaseBindingActivity<ActivityDashBinding> {
     private int btnTestClickCount =0;
@@ -19,7 +26,7 @@ public class DashActivity extends BaseBindingActivity<ActivityDashBinding> {
     @Override
     protected void init() {
         Log.v("hank", "Dash");
-//        initFragment();
+        initFragment();
 //        showToast();
         binding.btnTest.setOnClickListener(v ->{
             btnTestClickCount++;
@@ -28,6 +35,8 @@ public class DashActivity extends BaseBindingActivity<ActivityDashBinding> {
             showSuccessTips("測試ffewfewjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjfewfewfwefwefwefewf");
             
         });
+
+        startActivity(new Intent(DashActivity.this, LoginRegisterActivity.class));
 
     }
 

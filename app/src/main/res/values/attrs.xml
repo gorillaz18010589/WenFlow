@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomImageView">
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="watermarkText" format="string" />
+    </declare-styleable>
+
+<!--        <declare-styleable name="CustomConstraintLayout">-->
+<!--            <attr name="cornerRadiusTopLeft" format="dimension" />-->
+<!--            <attr name="cornerRadiusTopRight" format="dimension" />-->
+<!--            <attr name="cornerRadiusBottomLeft" format="dimension" />-->
+<!--            <attr name="cornerRadiusBottomRight" format="dimension" />-->
+<!--            <attr name="startColor" format="color" />-->
+<!--            <attr name="middleColor" format="color" />-->
+<!--            <attr name="endColor" format="color" />-->
+<!--            <attr name="shadowRadius" format="dimension" />-->
+<!--            <attr name="shadowColor" format="color" />-->
+<!--            <attr name="shadowDx" format="dimension" />-->
+<!--            <attr name="shadowDy" format="dimension" />-->
+<!--        </declare-styleable>-->
+
+
+    <declare-styleable name="CustomConstraintLayout">
+        <attr name="startColor" format="color" />
+        <attr name="middleColor" format="color" />
+        <attr name="endColor" format="color" />
+        <attr name="cornerRadiusTopLeft" format="dimension" />
+        <attr name="cornerRadiusTopRight" format="dimension" />
+        <attr name="cornerRadiusBottomLeft" format="dimension" />
+        <attr name="cornerRadiusBottomRight" format="dimension" />
+        <attr name="shadowRadius" format="dimension" />
+        <attr name="shadowColor" format="color" />
+        <attr name="shadowDx" format="dimension" />
+        <attr name="shadowDy" format="dimension" />
+    </declare-styleable>
+
+
+
+</resources>

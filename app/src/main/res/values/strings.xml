@@ -2,4 +2,12 @@
     <string name="app_name">WenFlow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="s_title">Title</string>
+
+    <!--  Login  -->
+    <string name="s_login_title">LOG IN</string>
+
+    <!--  Register  -->
+    <string name="s_register_title">SIGN UP</string>
 </resources>

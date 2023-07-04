@@ -7,6 +7,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 
 import com.wen.flow.support.util.StatusBarUtil;
+import com.wen.flow.ui.login_register.LoginRegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
 

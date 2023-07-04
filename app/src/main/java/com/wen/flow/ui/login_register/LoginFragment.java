@@ -12,7 +12,6 @@ import com.wen.flow.R;
 import com.wen.flow.databinding.FragmentLoginBinding;
 import com.wen.flow.support.base.BaseFragment;
 
-
 public class LoginFragment extends BaseFragment<FragmentLoginBinding> {
 
 
