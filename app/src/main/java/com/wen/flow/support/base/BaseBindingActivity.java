@@ -1,10 +1,12 @@
 package com.wen.flow.support.base;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
 
 import androidx.annotation.DrawableRes;
+import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,10 +16,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.wen.flow.MainActivity;
 import com.wen.flow.MyApplication;
 import com.wen.flow.R;
 import com.wen.flow.support.toast.TipsToast;
 import com.wen.flow.support.util.LoadingUtils;
+import com.wen.flow.support.util.StatusBarUtil;
 
 public abstract class BaseBindingActivity<T extends ViewDataBinding> extends AppCompatActivity {
     protected String TAG = getClass().getSimpleName();
@@ -39,7 +43,9 @@ public abstract class BaseBindingActivity<T extends ViewDataBinding> extends App
 
     protected abstract void init();
 
-    public void showFragment(Fragment fragment) {
+    /*Fragment Start*/
+
+    public void showFragment(@IdRes int containerViewId,Fragment fragment) {
         try {
             if (currentFragment != fragment) {
                 fragmentTransaction = fragmentManager.beginTransaction();
@@ -47,7 +53,7 @@ public abstract class BaseBindingActivity<T extends ViewDataBinding> extends App
 //                LogUtils.d("showFragment -> hide:" + currentFragment.getClass().getSimpleName());
                 currentFragment = fragment;
                 if (!fragment.isAdded()) {
-                    fragmentTransaction.add(R.id.fragmentContainerView, fragment).show(fragment).commit();
+                    fragmentTransaction.add(containerViewId, fragment).show(fragment).commit();
                 } else {
 //                    LogUtils.d("showFragment -> currentFragment:" + currentFragment.getClass().getSimpleName());
                     fragmentTransaction.show(fragment).commit();
@@ -57,6 +63,8 @@ public abstract class BaseBindingActivity<T extends ViewDataBinding> extends App
             e.printStackTrace();
         }
     }
+
+    /*Fragment End*/
 
     /*CenterLoadingView Start*/
 

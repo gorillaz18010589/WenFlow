@@ -10,4 +10,8 @@
 
     <!--  Register  -->
     <string name="s_register_title">SIGN UP</string>
+    <string name="s_login">登入</string>
+    <string name="s_register">註冊</string>
+    <string name="s_google_btn">使用Google繼續</string>
+    <string name="s_or">或</string>
 </resources>

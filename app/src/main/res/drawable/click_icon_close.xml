@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/icon_close_default"
+    <item android:drawable="@drawable/ic_baseline_cancel_default_24"
         android:state_pressed="false"
         android:state_enabled="true"/>
 
+<!--    ic_baseline_cancel_default_24-->
 
-
-    <item android:drawable="@drawable/icon_close_default"
+    <item android:drawable="@drawable/ic_baseline_cancel_24"
         android:state_pressed="true"
         android:state_enabled="true"/>
 </selector>
+

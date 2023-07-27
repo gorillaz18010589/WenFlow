@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="iconEnum"
             type="com.wen.flow.enums.IconEnum" />
@@ -29,17 +30,163 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conTitleCloseBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            >
+            app:layout_constraintTop_toTopOf="parent">
+
             <include
                 android:id="@+id/includeTitleCloseBar"
-                layout="@layout/include_title_close_bar"/>
-
+                layout="@layout/include_title_close_bar" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.xw.repo.widget.BounceScrollView
+            android:layout_width="match_parent"
+            android:layout_height="2000dp"
+            app:layout_constraintTop_toBottomOf="@+id/conTitleCloseBar">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/login_ads"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/toggle_button_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgLogo"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/mBtn1"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:text="@string/s_login"
+                        app:strokeColor="@color/black"
+                        app:rippleColor="@color/black"
+                        android:backgroundTint="@drawable/selected_btn_two"
+                        />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/mBtn2"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:text="@string/s_register"
+                        app:strokeColor="@color/black"
+                        app:rippleColor="@color/black"
+                        android:backgroundTint="@drawable/selected_btn_two"
+                        />
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mtlBtnGoogle"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintWidth_percent="0.9"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    app:layout_constraintTop_toBottomOf="@+id/toggle_button_group"
+                    android:layout_marginTop="20dp"
+                    app:icon="@drawable/icon_google_btn"
+                    android:text="@string/s_google_btn"
+                    android:textColor="@color/black"
+                    app:iconGravity="textStart"
+                    app:iconPadding="10dp"
+                    app:iconTint="@null" />
+                />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/conLine"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="@+id/mtlBtnGoogle"
+                    app:layout_constraintRight_toRightOf="@+id/mtlBtnGoogle"
+                    app:layout_constraintTop_toBottomOf="@+id/mtlBtnGoogle"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintWidth_percent="0.9"
+                    >
+
+                    <View
+                        android:id="@+id/leftLine"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/gray"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/tvCenterLine"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvCenterLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@+id/leftLine"
+                        app:layout_constraintRight_toLeftOf="@+id/rightLine"
+                        android:text="@string/s_or"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:textColor="@color/gray"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        />
+
+                    <View
+                        android:id="@+id/rightLine"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/gray"
+                        app:layout_constraintLeft_toRightOf="@+id/tvCenterLine"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <com.google.android.material.appbar.AppBarLayout
+                    app:layout_constraintTop_toBottomOf="@+id/conLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@color/colorPrimaryVariant_color"
+                    app:statusBarForeground="d"
+                    >
+
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.xw.repo.widget.BounceScrollView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -43,8 +43,8 @@ public class DashActivity extends BaseBindingActivity<ActivityDashBinding> {
     private void initFragment() {
         UserFragment userFragment = new UserFragment();
         HomeFragment homeFragment = new HomeFragment();
-        showFragment(userFragment);
-        showFragment(homeFragment);
+        showFragment(R.id.fragmentContainerView,userFragment);
+        showFragment(R.id.fragmentContainerView,homeFragment);
     }
 
 

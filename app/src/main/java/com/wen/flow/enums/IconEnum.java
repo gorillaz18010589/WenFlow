@@ -11,9 +11,9 @@ public enum IconEnum {
         this.iconId = iconId;
     }
 
-    private int code;
-    private int iconDrawable;
-    private int iconId;
+    public int code;
+    public int iconDrawable;
+    public int iconId;
 
 
     public int getCode() {

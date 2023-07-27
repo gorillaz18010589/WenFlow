@@ -24,8 +24,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/black"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimaryVariant_color"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textview.MaterialTextView
@@ -45,36 +45,36 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setSrc="@{iconEnum.getIconDrawable()}"
+                app:setSrc="@{iconEnum.iconDrawable}"
+                android:visibility="gone"
                 />
 
-<!--            <com.google.android.material.textview.MaterialTextView-->
-<!--                android:id="@+id/tvTile"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@{titleCloseBarEnum.getTitleId()  == 0 ?  @string/s_title :  titleCloseBarEnum.getTitleId()}"-->
-<!--                android:textColor="@color/white"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                app:layout_constraintRight_toRightOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
-
-
-<!--            <ImageButton-->
-<!--                android:id="@+id/btnClose"-->
-<!--                style="?android:attr/borderlessButtonStyle"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@null"-->
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
 <!--                app:layout_constraintBottom_toBottomOf="parent"-->
 <!--                app:layout_constraintRight_toRightOf="parent"-->
 <!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:setSrc="@{iconEnum.getIconDrawable()}"-->
+<!--                app:cornerRadius="100dp"-->
+<!--                app:icon="@drawable/ic_baseline_cancel_24"-->
+<!--                android:background="@null"-->
 <!--                />-->
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeImageBtnCancel"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/click_icon_close"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
