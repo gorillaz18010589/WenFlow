@@ -1,4 +1,4 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/black" android:state_checked="true" /> <!-- 選擇後的顏色 -->
-    <item android:color="@color/white" /> <!-- 預設的顏色 -->
+    <item android:color="@color/color_primary" android:state_checked="true" /> <!-- 選擇後的顏色 -->
+    <item android:color="@color/color_primary_variant" /> <!-- 預設的顏色 -->
 </selector>

@@ -1,9 +1,13 @@
 package com.wen.flow.support.base;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
@@ -12,7 +16,9 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -24,7 +30,7 @@ import com.wen.flow.support.util.LoadingUtils;
 import com.wen.flow.support.util.StatusBarUtil;
 
 public abstract class BaseBindingActivity<T extends ViewDataBinding> extends AppCompatActivity {
-    protected String TAG = getClass().getSimpleName();
+    protected String TAG = MyApplication.TAG +"->" +getClass().getSimpleName();
     protected T binding;
     protected FragmentManager fragmentManager;
     protected FragmentTransaction fragmentTransaction;
@@ -133,5 +139,19 @@ public abstract class BaseBindingActivity<T extends ViewDataBinding> extends App
     /*ToastUtils End*/
 
 
+    public static void hideKeyboard(Fragment fragment) {
+        FragmentActivity activity = fragment.requireActivity();
+        if (activity.getCurrentFocus() != null) {
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            View view = fragment.getView();
+            if (view != null)
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            else if (fragment instanceof DialogFragment) {
+                ((DialogFragment) fragment).getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+            }
+        } else {
+            activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        }
+    }
 
 }

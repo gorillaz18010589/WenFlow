@@ -14,4 +14,12 @@
     <string name="s_register">註冊</string>
     <string name="s_google_btn">使用Google繼續</string>
     <string name="s_or">或</string>
+    <string name="s_password_confrim">passwordConfrim</string>
+    <string name="s_email_input_null_erro">電子郵件(必填)</string>
+    <string name="s_email_input_type_erro">無效的電子郵件</string>
+    <string name="s_password_input_null_erro">密碼(必填)</string>
+    <string name="s_password_input_type_erro">密碼格式錯誤</string>
+    <string name="s_password_confrim_input_null_erro">密碼確認(必填)</string>
+    <string name="s_password_confrim_input_inconsistent_erro">與輸入密碼不相符合</string>
+    <string name="s_input_null_error">請填寫所有欄位,並符合規範。</string>
 </resources>

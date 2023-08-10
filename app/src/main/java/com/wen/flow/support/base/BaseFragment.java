@@ -9,17 +9,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
+
+import com.wen.flow.MyApplication;
+import com.wen.flow.R;
+import com.wen.flow.support.toast.TipsToast;
+import com.wen.flow.support.util.LoadingUtils;
 
 public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
 
     protected Context context;
     protected Activity mActivity;
     protected T binding;
+    protected boolean mIsViewCreate = false;
+    private LoadingUtils loadingUtils;
 
     @Override
     public void onAttach(Context context) {
@@ -42,6 +51,7 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mIsViewCreate = true;
         initData();
         initListeners();
     }
@@ -53,6 +63,70 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
     protected abstract void initData();
 
     protected abstract void initListeners();
+
+    public void showLoading(String txt, boolean canceledOnTouchOutside) {
+        getLoadingUtils().getLoadingView().setCanceledOnTouchOutside(canceledOnTouchOutside);
+        getLoadingUtils().show(txt);
+    }
+
+    public void showLoading(@StringRes int txtId, boolean canceledOnTouchOutside) {
+        showLoading(getResources().getString(txtId), canceledOnTouchOutside);
+    }
+    protected void showLoading(String msg) {
+        getLoadingUtils().show(msg);
+    }
+
+    protected void showLoading(@StringRes int res) {
+        showLoading(getString(res));
+    }
+
+    protected void dismissLoading() {
+        getLoadingUtils().dismissLoading();
+    }
+
+    /*ToastUtils Start*/
+
+    public void showToast(String msg) {
+        showToast(msg, 0);
+    }
+
+    public void showToast(@StringRes int stringId) {
+        showToast(stringId, 0);
+    }
+
+    public void showToast(String msg, @DrawableRes int drawableId) {
+        TipsToast.getInstance(MyApplication.getInstance(), drawableId).showTips(msg);
+    }
+
+    public void showToast(@StringRes int stringId, @DrawableRes int drawableId) {
+        TipsToast.getInstance(MyApplication.getInstance(), drawableId).showTips(stringId);
+    }
+
+    public void showSuccessTips(@StringRes int stringId) {
+        TipsToast.getInstance(MyApplication.getInstance()).showSuccessTips(stringId);
+    }
+
+    public void showSuccessTips(String msg) {
+        TipsToast.getInstance(MyApplication.getInstance()).showSuccessTips(msg);
+    }
+
+    public void showWarningTips(@StringRes int stringId) {
+        TipsToast.getInstance(MyApplication.getInstance()).showWarningTips(stringId);
+    }
+
+    public void showWarningTips(String msg) {
+        TipsToast.getInstance(MyApplication.getInstance()).showWarningTips(msg);
+    }
+
+
+    /*ToastUtils End*/
+    public LoadingUtils getLoadingUtils() {
+        if (loadingUtils == null) {
+            loadingUtils = new LoadingUtils(mActivity);
+        }
+        return loadingUtils;
+    }
+
 
     // 可選：如果需要在Fragment之間傳遞參數，可以添加一個靜態的newInstance方法
     // public static BaseFragment newInstance(String param1, int param2) {

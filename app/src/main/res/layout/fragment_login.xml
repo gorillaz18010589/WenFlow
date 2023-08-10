@@ -1,21 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.login_register.LoginFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conIncludeThreePartSignInBtns"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.9">
 
-    </FrameLayout>
+            <include layout="@layout/incline_third_party_sigi_in_buttons" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conLine"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="@+id/conIncludeThreePartSignInBtns"
+            app:layout_constraintRight_toRightOf="@+id/conIncludeThreePartSignInBtns"
+            app:layout_constraintTop_toBottomOf="@+id/conIncludeThreePartSignInBtns"
+            app:layout_constraintWidth_percent="0.9"
+            >
+
+            <View
+                android:id="@+id/leftLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/color_80707070"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tvCenterLine"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCenterLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/s_or"
+                android:textColor="@color/color_80707070"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/leftLine"
+                app:layout_constraintRight_toLeftOf="@+id/rightLine"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/rightLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/color_80707070"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/tvCenterLine"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/conLine"
+            app:layout_constraintWidth_percent="0.9" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputEmailLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="email"
+            app:boxStrokeColor="@color/color_80707070"
+            app:boxStrokeWidth="0.1dp"
+            app:boxStrokeWidthFocused="0.1dp"
+            app:endIconMode="custom"
+            app:hintTextColor="@color/color_80707070"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/conLine"
+            app:layout_constraintWidth_percent="0.9">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:lines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPassWordLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="password"
+            app:boxStrokeColor="@color/color_80707070"
+            app:boxStrokeWidth="0.1dp"
+            app:boxStrokeWidthFocused="0.1dp"
+            app:endIconMode="password_toggle"
+            app:hintTextColor="@color/color_80707070"
+            app:layout_constraintLeft_toLeftOf="@+id/textInputEmailLayout"
+            app:layout_constraintRight_toRightOf="@+id/textInputEmailLayout"
+            app:layout_constraintTop_toBottomOf="@+id/textInputEmailLayout"
+            app:layout_constraintWidth_percent="0.9">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editPassWord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:lines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

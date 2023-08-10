@@ -12,8 +12,18 @@
 
 
 
-    <color name="colorPrimary_color">#FF6200EE</color>
-    <color name="colorPrimaryVariant_color">#FFBB86FC</color>
+    <color name="color_80707070">#80707070</color>
+
+
+
+
+
+<!--    <color name="colorPrimary_color">#A461FF</color>-->
+<!--    <color name="colorPrimaryVariant_color">#FFBB86FC</color>-->
+
+
+    <color name="color_primary">#000000</color>
+    <color name="color_primary_variant">#FFFFFF</color>
 
 
 

@@ -25,7 +25,6 @@ public class DashActivity extends BaseBindingActivity<ActivityDashBinding> {
 
     @Override
     protected void init() {
-        Log.v("hank", "Dash");
         initFragment();
 //        showToast();
         binding.btnTest.setOnClickListener(v ->{

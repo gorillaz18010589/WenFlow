@@ -2,10 +2,10 @@
     <!-- Base application theme. -->
     <style name="Theme.WenFlow" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!--    按鈕顏色.  -->
-        <item name="colorPrimary">@color/colorPrimary_color</item>
+        <item name="colorPrimary">@color/color_primary</item>
 
         <!--    狀態列顏色    -->
-        <item name="colorPrimaryVariant">@color/colorPrimaryVariant_color</item>
+        <item name="colorPrimaryVariant">@color/color_primary_variant</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -35,6 +35,39 @@
 
 
 
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#FF03DAC5</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
+
+
+    <!--  iosTitleBar  -->
+    <declare-styleable name="TitleBar">
+        <attr name="bottomTextVisible" format="boolean" />
+        <attr name="bottomText" format="reference|string" />
+        <attr name="bottomTextColor" format="reference" />
+        <attr name="leftText" format="reference|string" />
+        <attr name="middleText" format="reference|string" />
+        <attr name="rightText" format="reference|string" />
+        <attr name="rightVisible" format="boolean" />
+        <attr name="leftVisible" format="boolean" />
+        <attr name="showStatusBar" format="boolean" />
+        <attr name="leftIcon" format="reference" />
+        <attr name="rightIcon" format="reference" />
+        <attr name="middleTextColor" format="reference" />
+        <attr name="rightTextColor" format="reference" />
+        <attr name="leftTextColor" format="reference" />
+        <attr name="leftTextSize" format="reference" />
+        <attr name="rightTextSize" format="dimension" />
+        <attr name="leftTextBold" format="boolean" />
+        <attr name="middleTextBold" format="boolean" />
+        <attr name="rightTextBold" format="boolean" />
+        <attr name="background" format="reference" />
+        <attr name="middleTextVisible" format="boolean" />
+        <attr name="rightIconVisible" format="boolean" />
+        <attr name="showDividerLine" format="boolean" />
+    </declare-styleable>
 
 
 </resources>

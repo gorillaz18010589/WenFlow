@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetStart="@id/start"
+        motion:constraintSetEnd="@id/end"
+        motion:duration="1000">
+
+        <!-- 定義滑動觸發點，當 bounceScrollView 開始滑動時進行過渡 -->
+        <OnSwipe
+            motion:touchAnchorId="@id/bounceScrollView"
+            motion:touchAnchorSide="top"
+            motion:dragDirection="dragUp" />
+
+        <!-- 指定目標元件進行過渡 -->
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:framePosition="0"
+                motion:motionTarget="@id/imgLogo"
+                android:alpha="1"
+                />
+
+            <KeyAttribute
+                motion:framePosition="100"
+                motion:motionTarget="@id/imgLogo"
+                android:alpha="0" />
+
+            <KeyAttribute
+                motion:framePosition="0"
+                motion:motionTarget="@id/toggle_button_group"
+                android:alpha="0" />
+
+            <KeyAttribute
+                motion:framePosition="100"
+                motion:motionTarget="@id/toggle_button_group"
+                android:alpha="1" />
+        </KeyFrameSet>
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:alpha="1" />
+
+        <Constraint
+            android:id="@id/toggle_button_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/imgLogo"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:alpha="0" />
+
+        <Constraint
+            android:id="@id/toggle_button_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:alpha="1" />
+    </ConstraintSet>
+</MotionScene>
+
+
