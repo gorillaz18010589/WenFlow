@@ -13,6 +13,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
@@ -26,6 +27,7 @@ import com.wen.flow.framework.manager.app.AppManager;
 import com.wen.flow.support.base.BaseBindingActivity;
 import com.wen.flow.enums.IconEnum;
 import com.wen.flow.support.util.DeviceInfoUtils;
+import com.wen.flow.ui.email_code.EmailCodeFragment;
 import com.wen.flow.viewmodel.ImageButtonViewModel;
 
 import java.util.Iterator;
@@ -36,6 +38,7 @@ public class LoginRegisterActivity extends BaseBindingActivity<ActivityLoginRegi
     private ImageButtonViewModel imageButtonViewModel;
     private LoginFragment loginFragment = new LoginFragment();
     private RegisterFragment registerFragment = new RegisterFragment();
+    private EmailCodeFragment emailCodeFragment = new EmailCodeFragment();
 
     @Override
     protected int getLayoutId() {
@@ -131,12 +134,26 @@ public class LoginRegisterActivity extends BaseBindingActivity<ActivityLoginRegi
         }
     }
 
-    private void changeFragment(Fragment fragment,String TAG){
+    public void changeFragment(Fragment fragment,String TAG){
         binding.includeTitleCloseBar.tvTile.setText(TAG.equals("LOGIN") ? "Login" : "REGISTER");
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.flContainer, fragment, TAG);
         fragmentTransaction.addToBackStack("");
         fragmentTransaction.commit();
+    }
+
+    public void startEmailFragment(){
+        showIconAndGroundBtnView(false);
+        binding.includeTitleCloseBar.tvTile.setText("信箱驗證");
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.flContainer, emailCodeFragment, "EMAIL");
+        fragmentTransaction.addToBackStack("");
+        fragmentTransaction.commit();
+    }
+
+    public void showIconAndGroundBtnView(boolean isShow){
+        binding.imgLogo.setVisibility(isShow ? View.VISIBLE :View.GONE);
+        binding.toggleButtonGroup.setVisibility(isShow ? View.VISIBLE : View.GONE);
     }
 
 

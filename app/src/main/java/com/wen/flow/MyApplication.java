@@ -16,9 +16,11 @@ import androidx.annotation.StringRes;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
+import com.tencent.mmkv.MMKV;
 import com.wen.flow.framework.manager.app.ActivityManager;
 import com.wen.flow.framework.manager.app.AppFrontBack;
 import com.wen.flow.framework.manager.app.AppManager;
+import com.wen.flow.network.interceptor.PublicParameterInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,6 +28,7 @@ public class MyApplication extends Application {
     private static MyApplication instance;
     private OkHttpClient mOkHttpClient;
     public final static String TAG = "hank";
+    public final static boolean isDebug = true;
 
     @Override
     public void onCreate() {
@@ -36,13 +39,14 @@ public class MyApplication extends Application {
 
     //初始話取得裝置資訊設定,及監聽
     private void initAppSetting() {
+        initMMKV();
         appFrontBackRegister();
         registerActivityLifecycle();
         AppManager.init(this);
     }
 
     //註冊前後台監聽
-    private void appFrontBackRegister(){
+    private void appFrontBackRegister() {
         AppFrontBack appFrontBack = new AppFrontBack();
         appFrontBack.register(this, new AppFrontBack.AppFrontBackListener() {
             @Override
@@ -58,7 +62,7 @@ public class MyApplication extends Application {
     }
 
     //註冊ActivityManager管理監聽
-    private void registerActivityLifecycle(){
+    private void registerActivityLifecycle() {
         instance.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
@@ -98,8 +102,12 @@ public class MyApplication extends Application {
         });
     }
 
-    private void initAppManager(){
+    private void initAppManager() {
         AppManager.init(this);
+    }
+
+    private void initMMKV() {
+        MMKV.initialize(this);
     }
 
     public static Context getAppContext() {
@@ -110,11 +118,11 @@ public class MyApplication extends Application {
         return instance;
     }
 
-    public Drawable getDrawableRes(@DrawableRes int id){
-       return   this.getResources().getDrawable(id);
+    public Drawable getDrawableRes(@DrawableRes int id) {
+        return this.getResources().getDrawable(id);
     }
 
-    public String getStringByRes(@StringRes int id){
+    public String getStringByRes(@StringRes int id) {
         return this.getResources().getString(id);
     }
 
@@ -140,5 +148,6 @@ public class MyApplication extends Application {
                 .addInterceptor(logInterceptor)
                 .build();
     }
+
 
 }

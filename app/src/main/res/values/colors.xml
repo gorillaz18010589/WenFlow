@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#F6F6F6</color>
     <color name="white_t_80">#80FFFFFF</color>
+    <color name="blue">#2196F3</color>
 
 
 
@@ -24,6 +25,7 @@
 
     <color name="color_primary">#000000</color>
     <color name="color_primary_variant">#FFFFFF</color>
+    <color name="color_secondary">#FFBB86FC</color>
 
 
 

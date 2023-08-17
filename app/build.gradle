@@ -71,12 +71,17 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
+    //有回彈效果的ScrollView
     implementation 'com.github.woxingxiao:BounceScrollView:1.4-androidx'
 
-
-
+    //Permission框架
     implementation 'com.github.tbruyelle:rxpermissions:0.12'
 
+    //數字,密碼鎖
+    implementation 'io.github.chaosleung:pinview:1.4.4'
+
+    //MMKV sp
+    implementation 'com.tencent:mmkv:1.0.23'
 
 
 }

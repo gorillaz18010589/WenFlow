@@ -1,4 +1,4 @@
-package com.wen.flow.network;
+package com.wen.flow.network.webapi;
 
 import android.util.Log;
 
@@ -20,6 +20,7 @@ import static com.wen.flow.MyApplication.TAG;
 
 public class BaseApi {
     private static final String LOCAL_SERVER_URL = "http://172.20.10.5:2365/api/";
+//    private static final String LOCAL_SERVER_URL = "http://172.20.10.1:2365/api/";
 //    private static final String LOCAL_SERVER_URL = "http://127.0.0.1:2365/api/";
 //    private static final String UPDATE_URL = BuildConfig.UPDATE_URL;
 

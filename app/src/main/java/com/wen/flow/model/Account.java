@@ -2,7 +2,7 @@ package com.wen.flow.model;
 
 import java.io.Serializable;
 
-public class Account implements Serializable {
+public class Account  implements Serializable  {
 
     /**
      * result : false

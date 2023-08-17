@@ -22,4 +22,9 @@
     <string name="s_password_confrim_input_null_erro">密碼確認(必填)</string>
     <string name="s_password_confrim_input_inconsistent_erro">與輸入密碼不相符合</string>
     <string name="s_input_null_error">請填寫所有欄位,並符合規範。</string>
+    <string name="s_check_email_title">查看您的電子郵件收件箱</string>
+    <string name="s_check_email_msg">請驗證您的電子郵件地址。我們已將包含6位數代碼的電子郵件發送到gorillaz1801058@gmai.com 此代碼將在15分鐘後失效。請在下面輸入。</string>
+    <string name="s_check_email_msg_second">此代碼將在15分鐘後失效。請在下面輸入。</string>
+    <string name="s_check_email_hint">仍未收到電子郵件?請檢查你的垃圾郵件資料夾。</string>
+    <string name="s_re_send_email">重發郵件。</string>
 </resources>

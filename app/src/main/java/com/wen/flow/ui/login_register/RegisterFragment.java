@@ -1,40 +1,39 @@
 package com.wen.flow.ui.login_register;
 
-import android.content.Intent;
-import android.os.Bundle;
-
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.gson.Gson;
 import com.wen.flow.MyApplication;
 import com.wen.flow.R;
 import com.wen.flow.databinding.FragmentRegisterBinding;
 import com.wen.flow.enums.RegexPatternEnum;
+import com.wen.flow.framework.log.KLog;
 import com.wen.flow.model.Account;
-import com.wen.flow.network.BaseApi;
-import com.wen.flow.network.IServiceApi;
+import com.wen.flow.network.repository.BaseRepository;
+import com.wen.flow.network.response.BaseResponse;
+import com.wen.flow.network.webapi.BaseApi;
+import com.wen.flow.network.webapi.IServiceApi;
 import com.wen.flow.support.base.BaseBindingActivity;
 import com.wen.flow.support.base.BaseFragment;
 import com.wen.flow.support.util.RegexUtils;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Callable;
 
-import static com.wen.flow.MyApplication.TAG;
+import io.reactivex.rxjava3.core.Single;
 
 
 public class RegisterFragment extends BaseFragment<FragmentRegisterBinding> {
@@ -316,29 +315,39 @@ public class RegisterFragment extends BaseFragment<FragmentRegisterBinding> {
         maps.put("userName", userName);
         maps.put("passWord", passWord);
         maps.put("passWordRepeat", passWordRepeat);
+        showLoading("請稍候..",false);
         BaseApi.request(BaseApi.createApi(IServiceApi.class).register(maps), new BaseApi.IResponseListener<Account>() {
             @Override
             public void onSuccess(Account data) {
+                dismissLoading();
                 if (data.isResult()) {
-
+                    startEmailCodeFragment();
                 } else {
                     showToast(data.getData().getErrMsg());
                 }
-                Log.v(TAG, "register() onSuccess -> data:" + data.getData() + ", isResult:" + data.isResult());
+                KLog.json(TAG + "register->", new Gson().toJson(data));
+//                Log.v(TAG, "register() onSuccess -> data:" + data.getData() + ", isResult:" + data.isResult());
             }
 
             @Override
             public void onFail() {
                 Log.v(TAG, "register() onFail ->");
+                dismissLoading();
                 showToast("請檢察網路是否連線中");
             }
 
             @Override
             public void onError(Throwable error) {
+                dismissLoading();
                 showToast(error.getMessage());
                 Log.v(TAG, "register() onError -> error:" + error.getMessage() + ", code:" + error.toString());
             }
         });
+    }
+
+    public void startEmailCodeFragment(){
+        LoginRegisterActivity loginRegisterActivity = ((LoginRegisterActivity)mActivity);
+        loginRegisterActivity.startEmailFragment();
     }
 
 }

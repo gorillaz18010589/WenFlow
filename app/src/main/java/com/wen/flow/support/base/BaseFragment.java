@@ -29,6 +29,7 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
     protected T binding;
     protected boolean mIsViewCreate = false;
     private LoadingUtils loadingUtils;
+    protected String TAG = getClass().getSimpleName() +"->";
 
     @Override
     public void onAttach(Context context) {
