@@ -1,6 +1,8 @@
 package com.wen.flow.support.base;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -43,11 +45,14 @@ public abstract class BaseBindingActivity<T extends ViewDataBinding> extends App
         binding = DataBindingUtil.setContentView(this, getLayoutId());
         fragmentManager = getSupportFragmentManager();
         init();
+        initListeners();
     }
 
     protected abstract int getLayoutId();
 
     protected abstract void init();
+
+    protected abstract void initListeners();
 
     /*Fragment Start*/
 
@@ -153,5 +158,17 @@ public abstract class BaseBindingActivity<T extends ViewDataBinding> extends App
             activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         }
     }
+
+
+    public void startActivity(Class<? extends Activity> cs) {
+        Intent intent = new Intent(this, cs);
+        startActivity(intent);
+    }
+
+    public void startActivityForResult(Class<? extends Activity> cs, int requestCode) {
+        Intent intent = new Intent(this, cs);
+        startActivityForResult(intent, requestCode);
+    }
+
 
 }

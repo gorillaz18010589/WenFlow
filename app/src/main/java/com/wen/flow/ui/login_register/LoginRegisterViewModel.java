@@ -20,9 +20,14 @@ public class LoginRegisterViewModel extends BaseViewModel {
 
 
     public MutableLiveData<BaseResponse<Account>> register(String userName, String passWord, String passWordRepeat) {
-//        registerData = requestResponse(loginRegisterRepository.registers(new RegisterRequest(userName, passWord, passWordRepeat)));
-        registerData = requestResponse(loginRegisterRepository.registers(userName,passWord,passWordRepeat));
+        registerData = requestResponse(loginRegisterRepository.registers(userName, passWord, passWordRepeat), Account.class, true);
         return registerData;
     }
 
+    public MutableLiveData<BaseResponse<Account>> getRegisterData() {
+        if (registerData == null) {
+            registerData = new MutableLiveData<>();
+        }
+        return registerData;
+    }
 }

@@ -14,7 +14,7 @@ public class LoadingUtils {
         this.mContext = context;
     }
 
-    public void show(String txt) {
+    public void show(String txt, boolean cancel) {
         if (loadingView == null) {
             loadingView = new CenterLoadingView(mContext);
         }
@@ -27,7 +27,12 @@ public class LoadingUtils {
         if(mContext instanceof Activity && ((Activity)mContext).isFinishing()){
             return;
         }
+        loadingView.setCanceledOnTouchOutside(cancel);
         loadingView.show();
+    }
+
+    public void show(String txt) {
+        show(txt, false);
     }
 
     public void dismissLoading() {

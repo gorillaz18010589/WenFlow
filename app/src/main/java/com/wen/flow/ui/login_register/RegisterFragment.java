@@ -2,14 +2,19 @@ package com.wen.flow.ui.login_register;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
@@ -20,6 +25,7 @@ import com.wen.flow.R;
 import com.wen.flow.databinding.FragmentRegisterBinding;
 import com.wen.flow.enums.RegexPatternEnum;
 import com.wen.flow.framework.log.KLog;
+import com.wen.flow.framework.navigation.navigator.ReplaceFragment;
 import com.wen.flow.model.Account;
 import com.wen.flow.network.repository.BaseRepository;
 import com.wen.flow.network.response.BaseResponse;
@@ -349,5 +355,73 @@ public class RegisterFragment extends BaseFragment<FragmentRegisterBinding> {
         LoginRegisterActivity loginRegisterActivity = ((LoginRegisterActivity)mActivity);
         loginRegisterActivity.startEmailFragment();
     }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        KLog.v("生命週期 onCreate()");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        KLog.v("生命週期 onResume()");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        KLog.v("生命週期 onStart()");
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        KLog.v("生命週期 onViewCreated()");
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        KLog.v("生命週期 onCreateView()");
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        KLog.v("生命週期 onDestroy()");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        KLog.v("生命週期 onDestroyView()");
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        KLog.v("生命週期 onAttach()");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        KLog.v("生命週期 onDetach()");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        KLog.v("生命週期 onStop()");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        KLog.v("生命週期 onPause()");
+    }
+
 
 }

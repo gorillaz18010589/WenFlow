@@ -1,5 +1,7 @@
 package com.wen.flow.network.response;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 
@@ -12,12 +14,13 @@ public class BaseResponse<T> implements Serializable {
      */
 
     private boolean result;
-    private DataBean data;
+    @SerializedName("data")
+    private ErrorData errorData;
     private T bean;
 
-    public BaseResponse(boolean result, DataBean data, T bean) {
+    public BaseResponse(boolean result, ErrorData data, T bean) {
         this.result = result;
-        this.data = data;
+        this.errorData = data;
         this.bean = bean;
     }
 
@@ -37,22 +40,46 @@ public class BaseResponse<T> implements Serializable {
         this.result = result;
     }
 
-    public DataBean getData() {
-        return data;
+    public ErrorData getErrorData() {
+        return errorData;
     }
 
-    public void setData(DataBean data) {
-        this.data = data;
+    public void setData(ErrorData data) {
+        this.errorData = data;
     }
 
-    public static class DataBean implements Serializable {
+    public static class ErrorData implements Serializable {
+        public ErrorData(String errMsg, int errCode) {
+            this.errMsg = errMsg;
+            this.errCode = errCode;
+        }
+
         /**
          * errMsg : USER_NAME_TYPE_ERROR
          * errCode : 1010001
          */
 
+
+
+
         private String errMsg;
         private int errCode;
+
+        public String getErrMsg() {
+            return errMsg;
+        }
+
+        public void setErrMsg(String errMsg) {
+            this.errMsg = errMsg;
+        }
+
+        public int getErrCode() {
+            return errCode;
+        }
+
+        public void setErrCode(int errCode) {
+            this.errCode = errCode;
+        }
     }
 
 

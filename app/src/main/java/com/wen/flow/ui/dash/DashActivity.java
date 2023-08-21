@@ -35,7 +35,13 @@ public class DashActivity extends BaseBindingActivity<ActivityDashBinding> {
             
         });
 
-        startActivity(new Intent(DashActivity.this, LoginRegisterActivity.class));
+//        startActivity(new Intent(DashActivity.this, LoginRegisterActivity.class));
+        startActivity(LoginRegisterActivity.class);
+
+    }
+
+    @Override
+    protected void initListeners() {
 
     }
 

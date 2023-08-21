@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 public class MyApplication extends Application {
     private static MyApplication instance;
     private OkHttpClient mOkHttpClient;
-    public final static String TAG = "hank";
+    public final static String TAG = "hank ->";
     public final static boolean isDebug = true;
 
     @Override
