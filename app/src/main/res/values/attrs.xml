@@ -6,19 +6,19 @@
         <attr name="watermarkText" format="string" />
     </declare-styleable>
 
-<!--        <declare-styleable name="CustomConstraintLayout">-->
-<!--            <attr name="cornerRadiusTopLeft" format="dimension" />-->
-<!--            <attr name="cornerRadiusTopRight" format="dimension" />-->
-<!--            <attr name="cornerRadiusBottomLeft" format="dimension" />-->
-<!--            <attr name="cornerRadiusBottomRight" format="dimension" />-->
-<!--            <attr name="startColor" format="color" />-->
-<!--            <attr name="middleColor" format="color" />-->
-<!--            <attr name="endColor" format="color" />-->
-<!--            <attr name="shadowRadius" format="dimension" />-->
-<!--            <attr name="shadowColor" format="color" />-->
-<!--            <attr name="shadowDx" format="dimension" />-->
-<!--            <attr name="shadowDy" format="dimension" />-->
-<!--        </declare-styleable>-->
+    <!--        <declare-styleable name="CustomConstraintLayout">-->
+    <!--            <attr name="cornerRadiusTopLeft" format="dimension" />-->
+    <!--            <attr name="cornerRadiusTopRight" format="dimension" />-->
+    <!--            <attr name="cornerRadiusBottomLeft" format="dimension" />-->
+    <!--            <attr name="cornerRadiusBottomRight" format="dimension" />-->
+    <!--            <attr name="startColor" format="color" />-->
+    <!--            <attr name="middleColor" format="color" />-->
+    <!--            <attr name="endColor" format="color" />-->
+    <!--            <attr name="shadowRadius" format="dimension" />-->
+    <!--            <attr name="shadowColor" format="color" />-->
+    <!--            <attr name="shadowDx" format="dimension" />-->
+    <!--            <attr name="shadowDy" format="dimension" />-->
+    <!--        </declare-styleable>-->
 
 
     <declare-styleable name="CustomConstraintLayout">
@@ -36,5 +36,16 @@
     </declare-styleable>
 
 
+    <style name="bottomNavTitleTextSelected" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/color_secondary</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/noto_sans_medium_500</item>
+    </style>
 
+
+    <style name="bottomNavTitleTextDefault" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/color_on_secondary</item>
+        <item name="android:fontFamily">@font/noto_sans_medium_500</item>
+    </style>
 </resources>

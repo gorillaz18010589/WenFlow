@@ -12,40 +12,22 @@
         android:layout_height="match_parent"
         tools:context=".ui.dash.home.HomeFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="30sp"
-            android:text="home" />
-
-        <include
-            layout="@layout/widget_title_cancel_top_bar"/>
 
 
-        <com.wen.flow.support.custom_view.CustomConstraintLayout
-            android:layout_width="300dp"
-            android:layout_height="150dp"
-            app:cornerRadiusBottomRight="20dp"
-            app:cornerRadiusTopLeft="20dp"
-            app:endColor="#87CEFA"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:middleColor="#4169E1"
 
-            app:shadowRadius="6dp"
-            app:startColor="#00008B" />
-
-<!--        <com.wen.flow.support.widget.TitleCancelTopBar-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
+<!--        <com.wen.flow.support.custom.CustomConstraintLayout-->
+<!--            android:layout_width="300dp"-->
+<!--            android:layout_height="150dp"-->
+<!--            app:cornerRadiusBottomRight="20dp"-->
+<!--            app:cornerRadiusTopLeft="20dp"-->
+<!--            app:endColor="#87CEFA"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
 <!--            app:layout_constraintLeft_toLeftOf="parent"-->
 <!--            app:layout_constraintRight_toRightOf="parent"-->
 <!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            />-->
+<!--            app:middleColor="#4169E1"-->
+<!--            app:shadowRadius="6dp"-->
+<!--            app:startColor="#00008B" />-->
 
 
 

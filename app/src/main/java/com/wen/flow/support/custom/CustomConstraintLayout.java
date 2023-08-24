@@ -1,4 +1,4 @@
-package com.wen.flow.support.custom_view;
+package com.wen.flow.support.custom;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -27,4 +27,13 @@
     <string name="s_check_email_msg_second">此代碼將在15分鐘後失效。請在下面輸入。</string>
     <string name="s_check_email_hint">仍未收到電子郵件?請檢查你的垃圾郵件資料夾。</string>
     <string name="s_re_send_email">重發郵件。</string>
+
+
+    <!--  NavigationBottomView  -->
+    <string name="s_navigation_title_home">首頁</string>
+    <string name="s_navigation_title_shop">選購</string>
+    <string name="s_navigation_title_account">我的</string>
+    <string name="s_navigation_title_shopping_cart">購物車</string>
+
+
 </resources>

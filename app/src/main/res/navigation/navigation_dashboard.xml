@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_dashboard"
-    app:startDestination="@id/dashBlankFragment">
+    app:startDestination="@id/homeFragment">
 
 
     <fragment
@@ -11,4 +11,25 @@
         android:name="com.wen.flow.ui.dash.DashBlankFragment"
         android:label="fragment_dash_blank"
         tools:layout="@layout/fragment_dash_blank" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.wen.flow.ui.dash.home.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.wen.flow.ui.dash.user.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.wen.flow.ShopFragment"
+        android:label="fragment_shop"
+        tools:layout="@layout/fragment_shop" />
+    <fragment
+        android:id="@+id/shoppingCartFragment"
+        android:name="com.wen.flow.ShoppingCartFragment"
+        android:label="fragment_shopping_cart"
+        tools:layout="@layout/fragment_shopping_cart" />
+
+
 </navigation>

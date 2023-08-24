@@ -25,10 +25,18 @@
 
     <color name="color_primary">#000000</color>
     <color name="color_primary_variant">#FFFFFF</color>
-    <color name="color_secondary">#FFBB86FC</color>
+    <color name="color_on_primary">#7F3FF1</color>
+
+
+    <color name="color_secondary">#7F3FF1</color>
+    <color name="color_secondary_variant">#999999</color>
+    <color name="color_on_secondary">#999999</color>
 
 
 
+
+
+    colorSecondary
 
 
 </resources>

@@ -9,7 +9,7 @@ import android.view.View;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.wen.flow.R;
-import com.wen.flow.support.custom_view.CustomConstraintLayout;
+import com.wen.flow.support.custom.CustomConstraintLayout;
 
 public class TitleCancelTopBar extends ConstraintLayout {
     private String TAG = getClass().getSimpleName() +"->";

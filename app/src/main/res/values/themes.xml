@@ -6,10 +6,17 @@
 
         <!--    狀態列顏色    -->
         <item name="colorPrimaryVariant">@color/color_primary_variant</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
+
+        <!--    icon,跟點按效果紫色    -->
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+
+
+
+        <!-- Secondary brand color.  品牌logo色,title,icon 這是用於強調元素的次要品牌顏色。-->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
+
+        <!--        colorOnSecondary: 設定為銀色，這是當項目未選中時BottomNavigationView中圖標和文字的顏色。-->
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
