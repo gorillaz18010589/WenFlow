@@ -34,6 +34,15 @@
     <string name="s_navigation_title_shop">選購</string>
     <string name="s_navigation_title_account">我的</string>
     <string name="s_navigation_title_shopping_cart">購物車</string>
+    <string name="s_shop_title">Shop</string>
 
+
+    <!-- titleBar   -->
+    <string name="bar_string_placeholder">""</string>
+    <string name="s_search">搜尋</string>
+
+    <!-- banner   -->
+    <string name="indicator_color_error">指示器的颜色只能设置成“@color/colorID or #000000”</string>
+    <string name="banner_adapter_null_error">Adapter为空！请检查下参数</string>
 
 </resources>

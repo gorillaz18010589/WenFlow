@@ -6,6 +6,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -30,7 +31,6 @@ import java.util.List;
 
 
 public class LoginRegisterActivity extends BaseBindingActivity<ActivityLoginRegisterBinding> {
-    private ImageButtonViewModel imageButtonViewModel;
     private NavController navController;
 
     @Override
@@ -42,19 +42,42 @@ public class LoginRegisterActivity extends BaseBindingActivity<ActivityLoginRegi
     @Override
     protected void init() {
         initHideShowNavFragmentController();
-        binding.includeTitleCloseBar.setTitleCloseBarEnum(TitleCloseBarEnum.Login);
-        binding.includeTitleCloseBar.setIconEnum(IconEnum.ICON_CLOSE);
-        binding.includeTitleCloseBar.shapeImageBtnCancel.setOnClickListener(v -> {
-            getAppDeviceInformation();
-        });
+        binding.mBtn1.setChecked(true);
         Log.v("hank", "init()");
     }
 
     @Override
     protected void initListeners() {
+        binding.includeTitleCloseBar.shapeImageBtnCancel.setOnClickListener(onClickListener);
         binding.toggleButtonGroup.addOnButtonCheckedListener(onButtonCheckedListener);
+        binding.swipeRefreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                binding.swipeRefreshView.setRefreshing(false);
+            }
+        });
         navController.addOnDestinationChangedListener(onDestinationChangedListener);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.v("hank", "onResume()");
+        binding.includeTitleCloseBar.setTitleCloseBarEnum(TitleCloseBarEnum.Login);
+        binding.includeTitleCloseBar.setIconEnum(IconEnum.ICON_CLOSE);
+    }
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.shapeImageBtnCancel:
+                    finish();
+//                    overridePendingTransition(R.anim.slide_in_from_top, R.anim.slide_out_to_bottom);
+                    break;
+            }
+        }
+    };
 
     MaterialButtonToggleGroup.OnButtonCheckedListener onButtonCheckedListener = new MaterialButtonToggleGroup.OnButtonCheckedListener() {
         @Override
@@ -111,7 +134,6 @@ public class LoginRegisterActivity extends BaseBindingActivity<ActivityLoginRegi
         NavHostFragment host = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.loginRegisterNavHostFragment);
         navController = host.getNavController();
-        binding.mBtn1.setChecked(true);
     }
 
     private void getAppInformation() {
@@ -186,33 +208,28 @@ public class LoginRegisterActivity extends BaseBindingActivity<ActivityLoginRegi
         return binding.toggleButtonGroup.getVisibility() == View.VISIBLE ? true : false;
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.v("hank", "onResume()");
-    }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.v("hank", "onPause()");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.v("hank", "onDestroy()");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.v("hank", "onRestart()");
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-        Log.v("hank", "onCreate()");
-    }
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        Log.v("hank", "onPause()");
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        Log.v("hank", "onDestroy()");
+//    }
+//
+//    @Override
+//    protected void onRestart() {
+//        super.onRestart();
+//        Log.v("hank", "onRestart()");
+//    }
+//
+//    @Override
+//    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+//        super.onCreate(savedInstanceState, persistentState);
+//        Log.v("hank", "onCreate()");
+//    }
 }

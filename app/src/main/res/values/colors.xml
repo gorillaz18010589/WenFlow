@@ -13,7 +13,7 @@
 
 
 
-    <color name="color_80707070">#80707070</color>
+    <color name="color_80707070">#3A3131</color>
 
 
 
@@ -36,7 +36,8 @@
 
 
 
-    colorSecondary
+    <color name="grays">#80D1D1D5</color>
+    <color name="red">#CC1616</color>
 
 
 </resources>

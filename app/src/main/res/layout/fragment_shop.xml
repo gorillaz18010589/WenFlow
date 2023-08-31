@@ -1,14 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ShopFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".ui.dash.shop.ShopFragment"
+        android:background="@color/color_primary_variant"
+        >
 
-</FrameLayout>
+        <!--    整個bar要做特效的容器-->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Light">
+
+            <!--   滑動消失的toolbar放此     -->
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentScrim="@color/white_t_80"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                app:title="@string/s_search"
+                >
+
+                <com.wen.flow.support.custom.titlebar.TitleBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    app:childVerticalPadding="8dp"
+                    app:leftIcon="@drawable/icon_shop_checked"
+                    app:leftIconGravity="left"
+                    app:leftIconHeight="24dp"
+                    app:leftIconPadding="5dp"
+                    app:lineVisible="false"
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        >
+
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="促銷活動都在這邊!!"
+                           android:layout_gravity="center"
+                           style="@style/textMsgStyle"
+                           android:layout_marginLeft="40dp"
+
+                           />
+
+
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_shop_checked"
+                            android:layout_marginLeft="10dp"
+                            />
+
+
+                    </LinearLayout>
+
+
+                </com.wen.flow.support.custom.titlebar.TitleBar>
+
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.wen.flow.support.custom.CustomConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:startColor="@color/grays"
+                app:middleColor="@color/grays"
+                app:endColor="@color/grays"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:cornerRadiusBottomLeft="5dp"
+                app:cornerRadiusBottomRight="5dp"
+                app:cornerRadiusTopLeft="5dp"
+                app:cornerRadiusTopRight="5dp"
+                android:layout_marginTop="20dp"
+                >
+
+
+                <ImageView
+                    android:id="@+id/tvSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_search_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@+id/tvSearch"
+                    app:layout_constraintTop_toTopOf="@+id/tvSearch"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSearch"
+                    android:text="Nike Air Force"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/noto_sans_bold_700"
+                    android:layout_marginLeft="5dp"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvSearch"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSearch"
+                    android:src="@drawable/ic_baseline_mic_none_24"
+                    android:layout_marginRight="10dp"
+                    />
+
+
+            </com.wen.flow.support.custom.CustomConstraintLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/sc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                >
+
+<!--                <LinearLayout-->
+<!--                    android:visibility="gone"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    >-->
+
+<!--                    <com.wen.flow.support.custom.banner.indicator.RectangleIndicator-->
+<!--                        android:id="@+id/indicator"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="12dp"-->
+<!--                        android:layout_marginLeft="20dp"-->
+<!--                        android:layout_marginRight="20dp"-->
+<!--                        />-->
+
+<!--                    <com.wen.flow.support.custom.banner.Banner-->
+<!--                        android:id="@+id/banner"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"/>-->
+
+
+<!--                </LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+                    <net.lucode.hackware.magicindicator.MagicIndicator
+                        android:id="@+id/magicIndicator"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        />
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="800dp"/>
+
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+
+        </LinearLayout>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
+
+
+
+

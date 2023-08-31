@@ -19,7 +19,8 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 import static com.wen.flow.MyApplication.TAG;
 
 public class BaseApi {
-    private static final String LOCAL_SERVER_URL = "http://172.20.10.5:2365/api/";
+//    private static final String LOCAL_SERVER_URL = "http://172.20.10.5:2365/api/";
+    private static final String LOCAL_SERVER_URL = "https://api.itbook.store/1.0/";
 //    private static final String LOCAL_SERVER_URL = "http://172.20.10.1:2365/api/";
 //    private static final String LOCAL_SERVER_URL = "http://127.0.0.1:2365/api/";
 //    private static final String UPDATE_URL = BuildConfig.UPDATE_URL;

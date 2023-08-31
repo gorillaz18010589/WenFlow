@@ -70,18 +70,20 @@ public class DashActivity extends BaseBindingActivity<ActivityDashBinding> {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             int id = item.getItemId();
             int currentId = NAV_TAB_DIRECTIONS.get(id);
-            if (navController.getCurrentDestination().getId() != currentId) {
+            if (navController.getCurrentDestination().getId() != currentId || currentId== R.id.userFragment) {
+                boolean isGust = currentId == R.id.userFragment;
+                if (isGust) startLoginRegisterActivity(currentId);
                 navController.popBackStack();
                 navController.navigate(currentId);
-                binding.customBottomNav.setItemTextAppearanceActive(R.style.bottomNavTitleTextSelected);
                 return true;
             }
             return false;
         }
     };
 
-    private void startLoginRegisterActivity() {
-        startActivity(LoginRegisterActivity.class);
+    private void startLoginRegisterActivity(int actionId) {
+        startActivity(new Intent(DashActivity.this,LoginRegisterActivity.class));
+//        overridePendingTransition(R.anim.slide_in_from_top, R.anim.slide_out_to_bottom);
     }
 
 }
