@@ -1,14 +1,11 @@
-package com.wen.flow.ui.dash.shop;
+package com.wen.flow.ui.dash.shop.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
+import com.wen.flow.ui.dash.shop.BaseAdapterBean;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-public class PopularCategory implements Parcelable {
+public class PopularCategory extends BaseAdapterBean implements Parcelable {
     private int popularCategoryType;
     private String popularCategoryName;
     private int popularCategoryImg;

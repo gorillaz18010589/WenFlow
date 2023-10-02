@@ -10,7 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.dash.DashActivity">
+        tools:context=".ui.dash.DashActivity"
+        >
 
 
         <fragment
@@ -35,6 +36,7 @@
             app:itemIconTint="@color/nav_bottom_checked_color"
             app:itemTextColor="@color/nav_bottom_checked_color"
             app:menu="@menu/bottom_navigation_menu"
+            android:visibility="gone"
             app:itemBackground="@null"/>
 
 

@@ -2,7 +2,9 @@ package com.wen.flow.network.response;
 
 import com.wen.flow.network.error.ApiException;
 
-public abstract class ApiResult<T> {
+import java.io.Serializable;
+
+public abstract class ApiResult<T> implements Serializable {
     private ApiException apiException;
 
     public ApiException getApiException() {
@@ -13,4 +15,7 @@ public abstract class ApiResult<T> {
         this.apiException = apiException;
     }
 
+    public String getTagName (){
+        return getClass().getSimpleName();
+    }
 }

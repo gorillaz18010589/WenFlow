@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.wen.flow.support.custom.CustomConstraintLayout
+        android:id="@+id/conTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:endColor="@color/color_80878282"
+        app:layout_constraintTop_toTopOf="parent"
+        app:middleColor="@color/color_80878282"
+        app:startColor="@color/color_80878282">
+
+        <View
+            android:id="@+id/lineLeft"
+            android:layout_width="50dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/text_22_700_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/s_you_may_also_like"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+
+
+        <View
+            android:id="@+id/lineRight"
+            android:layout_width="50dp"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        />
+
+    </com.wen.flow.support.custom.CustomConstraintLayout>
+
+    <org.yczbj.ycrefreshviewlib.view.YCRefreshView
+        android:id="@+id/rvProductRecommend"
+        android:layout_width="match_parent"
+        android:layout_height="800dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="80dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,5 +44,14 @@
     <!-- banner   -->
     <string name="indicator_color_error">指示器的颜色只能设置成“@color/colorID or #000000”</string>
     <string name="banner_adapter_null_error">Adapter为空！请检查下参数</string>
+    <string name="s_email_code_null_error">請輸入6位數驗證碼,謝謝</string>
+    <string name="s_s_resend_email_code_success">驗證碼已寄至信箱,請查看並驗證,謝謝</string>
+    <string name="title_activity_header_footer">HeaderFooterActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="s_you_may_also_like">猜你喜歡</string>
 
 </resources>

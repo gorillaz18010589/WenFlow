@@ -31,6 +31,7 @@
                 >
 
                 <com.wen.flow.support.custom.titlebar.TitleBar
+                    android:id="@+id/titleBar"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     app:childVerticalPadding="8dp"
@@ -39,35 +40,34 @@
                     app:leftIconHeight="24dp"
                     app:leftIconPadding="5dp"
                     app:lineVisible="false"
+                    app:leftIconTint="@color/color_primary"
                     >
+
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
+                        android:layout_gravity="center"
                         >
 
-
-                       <TextView
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="促銷活動都在這邊!!"
-                           android:layout_gravity="center"
-                           style="@style/textMsgStyle"
-                           android:layout_marginLeft="40dp"
-
-                           />
-
-
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="促銷活動都在這邊!!"
+                            android:layout_gravity="center"
+                            style="@style/textMsgStyle"
+                            android:layout_marginLeft="40dp"
+                            />
 
                         <ImageView
                             android:layout_gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/icon_shop_checked"
-                            android:layout_marginLeft="10dp"
-                            />
+                            android:src="@drawable/icon_arrow_right_default"
+                            android:layout_marginLeft="2dp"
+                            app:tint="@color/color_primary" />
 
 
                     </LinearLayout>

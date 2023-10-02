@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wen.flow.R;
+import com.wen.flow.ui.dash.shop.model.PopularCategory;
 
 import java.util.List;
 

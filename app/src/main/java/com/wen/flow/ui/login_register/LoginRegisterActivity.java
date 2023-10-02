@@ -31,7 +31,7 @@ import java.util.List;
 
 
 public class LoginRegisterActivity extends BaseBindingActivity<ActivityLoginRegisterBinding> {
-    private NavController navController;
+    public NavController navController;
 
     @Override
     protected int getLayoutId() {
@@ -196,7 +196,7 @@ public class LoginRegisterActivity extends BaseBindingActivity<ActivityLoginRegi
     public void startEmailFragment() {
         showIconAndGroundBtnView(false);
         binding.includeTitleCloseBar.tvTile.setText("信箱驗證");
-        navController.navigate(R.id.emailCodeFragment);
+//        navController.navigate(R.id.emailCodeFragment);
     }
 
     public void showIconAndGroundBtnView(boolean isShow) {

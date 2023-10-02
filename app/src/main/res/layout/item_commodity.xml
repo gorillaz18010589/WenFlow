@@ -1,42 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="model"
             type="com.wen.flow.ui.dash.shop.viemodel.MongodbViewModel" />
     </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/item"
         >
 
-        <ImageView
-            android:id="@+id/img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_mic_none_24" />
-
-        <TextView
-            android:id="@+id/tvName"
-            style="@style/textMsgStyle"
-            android:layout_width="wrap_content"
+        <com.wen.flow.support.custom.CustomConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="測試" />
+            app:cornerRadiusBottomLeft="10dp"
+            app:cornerRadiusBottomRight="10dp"
+            app:cornerRadiusTopLeft="10dp"
+            app:cornerRadiusTopRight="10dp"
+            app:endColor="@color/gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:middleColor="@color/gray"
+            app:startColor="@color/gray">
 
-        <TextView
-            android:id="@+id/tvPrice"
-            style="@style/textPriceStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="$200" />
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/photp_nike_low"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
 
 
-    </LinearLayout>
+                />
+
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/textMsgStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Nike Air Force"
+                app:layout_constraintLeft_toLeftOf="@+id/img"
+                app:layout_constraintRight_toRightOf="@+id/img"
+                app:layout_constraintTop_toBottomOf="@+id/img" />
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="@+id/img"
+                app:layout_constraintRight_toRightOf="@+id/img"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+
+                >
+
+                <TextView
+                    style="@style/textPriceStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="$" />
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    style="@style/textPriceStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="200" />
+
+
+            </LinearLayout>
+
+        </com.wen.flow.support.custom.CustomConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </layout>
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.wen.flow.support.custom.CustomConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            app:cornerRadiusBottomLeft="10dp"
+            app:cornerRadiusBottomRight="10dp"
+            app:cornerRadiusTopLeft="10dp"
+            app:cornerRadiusTopRight="10dp"
+            app:endColor="@color/gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:middleColor="@color/gray"
+            app:startColor="@color/gray">
+
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/photp_nike_low"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+
+                />
+
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/textMsgStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Nike Air Force"
+                app:layout_constraintLeft_toLeftOf="@+id/img"
+                app:layout_constraintRight_toRightOf="@+id/img"
+                app:layout_constraintTop_toBottomOf="@+id/img" />
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="@+id/img"
+                app:layout_constraintRight_toRightOf="@+id/img"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+
+                >
+
+                <TextView
+                    style="@style/textPriceStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="$" />
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    style="@style/textPriceStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="200" />
+
+
+            </LinearLayout>
+
+        </com.wen.flow.support.custom.CustomConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+-->

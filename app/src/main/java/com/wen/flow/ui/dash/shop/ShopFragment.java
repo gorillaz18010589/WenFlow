@@ -1,17 +1,10 @@
 package com.wen.flow.ui.dash.shop;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
@@ -23,7 +16,7 @@ import com.wen.flow.network.response.Mongodb;
 import com.wen.flow.network.webapi.BaseApi;
 import com.wen.flow.network.webapi.IServiceApi;
 import com.wen.flow.support.base.BaseFragment;
-import com.wen.flow.support.custom.banner.indicator.CircleIndicator;
+import com.wen.flow.ui.dash.shop.model.PopularCategory;
 
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
 import net.lucode.hackware.magicindicator.buildins.UIUtil;
@@ -36,6 +29,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.Simple
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ShopFragment extends BaseFragment<FragmentShopBinding> {
@@ -73,6 +67,8 @@ public class ShopFragment extends BaseFragment<FragmentShopBinding> {
         tabTitles.add("衣服");
         tabTitles.add("配件");
 
+        LinkedList<ArrayList<PopularCategory>> listLinkedList = new LinkedList<>();
+
         HashMap<Integer, ArrayList<PopularCategory>> hashMap = new HashMap<>();
 
         ArrayList<PopularCategory> list1 = new ArrayList<>();
@@ -106,9 +102,18 @@ public class ShopFragment extends BaseFragment<FragmentShopBinding> {
         hashMap.put(1, list2);
         hashMap.put(2, list3);
         hashMap.put(3, list4);
+
+        listLinkedList.push(list1);
+        listLinkedList.push(list2);
+        listLinkedList.push(list3);
+        listLinkedList.push(list4);
+
+        KLog.json("hashMap:" + new Gson().toJson(hashMap));
+        KLog.json("listLinkedList:" + new Gson().toJson(listLinkedList));
+
         List<Fragment> fragmentList = new ArrayList<>();
         for (int i = 0; i < tabTitles.size(); i++) {
-            fragmentList.add(DynamicFragment.newInstance(tabTitles.get(i), hashMap.get(i)));
+            fragmentList.add(DynamicFragment.newInstance(tabTitles.get(i), listLinkedList.get(i)));
         }
 
 
@@ -128,7 +133,7 @@ public class ShopFragment extends BaseFragment<FragmentShopBinding> {
                 SimplePagerTitleView titleView = new SimplePagerTitleView(context);
 //                titleView.setNormalColor(getResources().getColor(R.color.blue));
                 titleView.setNormalColor(context.getColor(R.color.grays));
-                titleView.setSelectedColor(getResources().getColor(R.color.color_on_primary));
+                titleView.setSelectedColor(getResources().getColor(R.color.color_80707070));
                 titleView.setTextSize(16);
                 titleView.setText(tabTitles.get(index));
 
@@ -165,7 +170,7 @@ public class ShopFragment extends BaseFragment<FragmentShopBinding> {
                 indicator.setStartInterpolator(new AccelerateInterpolator());
                 indicator.setEndInterpolator(new DecelerateInterpolator(2.0f));
                 indicator.setYOffset(context.getResources().getDimension(R.dimen.dp_7));
-                indicator.setColors(getResources().getColor(R.color.color_80707070));
+                indicator.setColors(getResources().getColor(R.color.color_secondary));
                 return indicator;
             }
         });

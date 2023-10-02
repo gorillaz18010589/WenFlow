@@ -24,12 +24,25 @@
         android:id="@+id/shopFragment"
         android:name="com.wen.flow.ui.dash.shop.ShopFragment"
         android:label="fragment_shop"
-        tools:layout="@layout/fragment_shop" />
+        tools:layout="@layout/fragment_shop" >
+        <action
+            android:id="@+id/action_shopFragment_to_productDialogFragment"
+            app:destination="@id/productDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/shoppingCartFragment"
         android:name="com.wen.flow.ShoppingCartFragment"
         android:label="fragment_shopping_cart"
         tools:layout="@layout/fragment_shopping_cart" />
+
+    <fragment
+        android:id="@+id/productDialogFragment"
+        android:name="com.wen.flow.ui.dash.product.ProductDialogFragment"
+        android:label="ProductDialogFragment" >
+        <action
+            android:id="@+id/action_productDialogFragment_to_shopFragment"
+            app:destination="@id/shopFragment" />
+    </fragment>
 
 
 </navigation>

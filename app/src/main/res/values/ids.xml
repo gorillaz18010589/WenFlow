@@ -6,4 +6,10 @@
     <!--  banner  -->
     <item name="banner_data_key" type="id"/>
     <item name="banner_pos_key" type="id"/>
+
+
+    <!--  productBannerAdapter  -->
+    <item name="banner_chip" type="id"/>
+    <item name="banner_img" type="id"/>
+    <item name="banner_container" type="id"/>
 </resources>

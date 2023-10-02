@@ -124,13 +124,15 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> {
     @Override
     protected void initListeners() {
         binding.btnLogin.setOnClickListener(v -> {
-            loginRegisterViewModel.register("gorillaz180105@gmail.com", "123456789", "123456789")
-                    .observe(requireActivity(), new Observer<BaseResponse<Account>>() {
-                        @Override
-                        public void onChanged(BaseResponse<Account> accountBaseResponse) {
-//                            TestBaseViewModel(accountBaseResponse);
-                        }
-                    });
+        loginRegisterViewModel.login("gorillaz1801058@gmail.com","123456789",1).observe(requireActivity(), data ->{
+            if(data.isResult()){
+                MyApplication.getInstance().saveLoginData(data.getBean());
+                showSuccessTips("登入成功:" + MyApplication.getInstance().getLoginData().getUserName());
+            }else {
+                showWarningTips("登入失敗");
+            }
+        });
+
         });
     }
 

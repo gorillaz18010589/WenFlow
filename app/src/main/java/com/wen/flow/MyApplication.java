@@ -21,6 +21,7 @@ import com.wen.flow.framework.manager.app.ActivityManager;
 import com.wen.flow.framework.manager.app.AppFrontBack;
 import com.wen.flow.framework.manager.app.AppManager;
 import com.wen.flow.network.interceptor.PublicParameterInterceptor;
+import com.wen.flow.network.response.LoginModel;
 
 import java.util.concurrent.TimeUnit;
 
@@ -108,6 +109,7 @@ public class MyApplication extends Application {
 
     private void initMMKV() {
         MMKV.initialize(this);
+
     }
 
     public static Context getAppContext() {
@@ -149,5 +151,19 @@ public class MyApplication extends Application {
                 .build();
     }
 
+    /*
+     * MMKV Start
+     */
+    public void saveLoginData(LoginModel loginModel) {
+        MMKV.defaultMMKV().encode(loginModel.getTagName(), loginModel);
+    }
+
+    public LoginModel getLoginData() {
+        return MMKV.defaultMMKV().decodeParcelable(new LoginModel().getTagName(), LoginModel.class, new LoginModel());
+    }
+
+    /*
+     * MMKV End
+     */
 
 }

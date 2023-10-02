@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -28,7 +29,10 @@ import com.wen.flow.framework.log.KLog;
 import com.wen.flow.framework.navigation.navigator.ReplaceFragment;
 import com.wen.flow.model.Account;
 import com.wen.flow.network.repository.BaseRepository;
+import com.wen.flow.network.request.ApiRequest;
+import com.wen.flow.network.request.SendEmailCodeRequest;
 import com.wen.flow.network.response.BaseResponse;
+import com.wen.flow.network.response.SendEmailCodeModel;
 import com.wen.flow.network.webapi.BaseApi;
 import com.wen.flow.network.webapi.IServiceApi;
 import com.wen.flow.support.base.BaseBindingActivity;
@@ -44,6 +48,8 @@ import io.reactivex.rxjava3.core.Single;
 
 public class RegisterFragment extends BaseFragment<FragmentRegisterBinding> {
     private int All_VIEW = -999;
+    private LoginRegisterViewModel loginRegisterViewModel;
+
 
     @Override
     protected int getLayoutResourceId() {
@@ -59,7 +65,8 @@ public class RegisterFragment extends BaseFragment<FragmentRegisterBinding> {
         String passWord = binding.editPassWord.getText().toString();
         String passWordRepeat = binding.editPassWordConfirm.getText().toString();
         if (checkFormat(All_VIEW)) {
-            register(userName, passWord, passWordRepeat);
+//            register(userName, passWord, passWordRepeat);
+            sendEmailCode(userName, passWord, passWordRepeat);
         } else {
             showToast(MyApplication.getInstance().getStringByRes(R.string.s_input_null_error));
             Log.v(TAG, "錯誤");
@@ -68,7 +75,7 @@ public class RegisterFragment extends BaseFragment<FragmentRegisterBinding> {
 
     @Override
     protected void initData() {
-
+        loginRegisterViewModel = new ViewModelProvider(getActivity()).get(LoginRegisterViewModel.class);
     }
 
     @Override
@@ -315,45 +322,63 @@ public class RegisterFragment extends BaseFragment<FragmentRegisterBinding> {
         }
     }
 
-    public void register(String userName, String passWord, String passWordRepeat) {
-        Log.v(TAG, "register ->");
-        Map<String, String> maps = new HashMap<>();
-        maps.put("userName", userName);
-        maps.put("passWord", passWord);
-        maps.put("passWordRepeat", passWordRepeat);
-        showLoading("請稍候..",false);
-        BaseApi.request(BaseApi.createApi(IServiceApi.class).register(maps), new BaseApi.IResponseListener<Account>() {
+//    public void register(String userName, String passWord, String passWordRepeat) {
+//        Log.v(TAG, "register ->");
+//        Map<String, String> maps = new HashMap<>();
+//        maps.put("userName", userName);
+//        maps.put("passWord", passWord);
+//        maps.put("passWordRepeat", passWordRepeat);
+//        showLoading("請稍候..",false);
+//        BaseApi.request(BaseApi.createApi(IServiceApi.class).register(maps), new BaseApi.IResponseListener<Account>() {
+//            @Override
+//            public void onSuccess(Account data) {
+//                dismissLoading();
+//                if (data.isResult()) {
+//                    startEmailCodeFragment();
+//                } else {
+//                    showToast(data.getData().getErrMsg());
+//                }
+//                KLog.json(TAG + "register->", new Gson().toJson(data));
+////                Log.v(TAG, "register() onSuccess -> data:" + data.getData() + ", isResult:" + data.isResult());
+//            }
+//
+//            @Override
+//            public void onFail() {
+//                Log.v(TAG, "register() onFail ->");
+//                dismissLoading();
+//                showToast("請檢察網路是否連線中");
+//            }
+//
+//            @Override
+//            public void onError(Throwable error) {
+//                dismissLoading();
+//                showToast(error.getMessage());
+//                Log.v(TAG, "register() onError -> error:" + error.getMessage() + ", code:" + error.toString());
+//            }
+//        });
+//    }
+
+    public void sendEmailCode(String userName, String passWord, String passWordRepeat) {
+        Log.v(TAG, "sendEmailCode -> userName:" + userName +", passWord:" + passWord +", passWordRepeat:" + passWordRepeat);
+        loginRegisterViewModel.sendEmailCode(userName, passWord, passWordRepeat).observe(requireActivity(), new Observer<BaseResponse<SendEmailCodeModel>>() {
             @Override
-            public void onSuccess(Account data) {
-                dismissLoading();
-                if (data.isResult()) {
-                    startEmailCodeFragment();
-                } else {
-                    showToast(data.getData().getErrMsg());
+            public void onChanged(BaseResponse<SendEmailCodeModel> sendEmailCodeModelBaseResponse) {
+                if(sendEmailCodeModelBaseResponse.isResult()){
+                    startEmailCodeFragments();
                 }
-                KLog.json(TAG + "register->", new Gson().toJson(data));
-//                Log.v(TAG, "register() onSuccess -> data:" + data.getData() + ", isResult:" + data.isResult());
-            }
-
-            @Override
-            public void onFail() {
-                Log.v(TAG, "register() onFail ->");
-                dismissLoading();
-                showToast("請檢察網路是否連線中");
-            }
-
-            @Override
-            public void onError(Throwable error) {
-                dismissLoading();
-                showToast(error.getMessage());
-                Log.v(TAG, "register() onError -> error:" + error.getMessage() + ", code:" + error.toString());
             }
         });
+
     }
 
-    public void startEmailCodeFragment(){
+    public void startEmailCodeFragments(){
+        ApiRequest apiRequest = loginRegisterViewModel.getLoginRegisterRepository().getApiRequestByClassTag(new SendEmailCodeRequest().getTagName());
+        if(apiRequest == null) return;
         LoginRegisterActivity loginRegisterActivity = ((LoginRegisterActivity)mActivity);
         loginRegisterActivity.startEmailFragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(apiRequest.getTagName(),apiRequest);
+        loginRegisterActivity.navController.navigate(R.id.emailCodeFragment,bundle);
     }
 
     @Override

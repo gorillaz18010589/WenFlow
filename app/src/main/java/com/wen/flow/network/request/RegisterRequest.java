@@ -3,12 +3,12 @@ package com.wen.flow.network.request;
 public class RegisterRequest extends ApiRequest{
     private String userName;
     private String passWord;
-    private String passWordRepeat;
+    private int emailCode;
 
-    public RegisterRequest(String userName, String passWord, String passWordRepeat) {
+    public RegisterRequest(String userName, String passWord, int emailCode) {
         this.userName = userName;
         this.passWord = passWord;
-        this.passWordRepeat = passWordRepeat;
+        this.emailCode = emailCode;
     }
 
     public String getUserName() {
@@ -27,11 +27,11 @@ public class RegisterRequest extends ApiRequest{
         this.passWord = passWord;
     }
 
-    public String getPassWordRepeat() {
-        return passWordRepeat;
+    public int getEmailCode() {
+        return emailCode;
     }
 
-    public void setPassWordRepeat(String passWordRepeat) {
-        this.passWordRepeat = passWordRepeat;
+    public void setEmailCode(int emailCode) {
+        this.emailCode = emailCode;
     }
 }
